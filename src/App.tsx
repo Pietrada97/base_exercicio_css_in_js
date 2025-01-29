@@ -1,18 +1,25 @@
-import Cabecalho from './components/Cabecalho'
-import Hero from './components/Hero'
+import React from 'react'
 import ListaVagas from './containers/ListaVagas'
-import GlobalStyle from './GlobalStyle' // Importe o arquivo de estilos globais
+import { Vaga } from './types/Vaga'
 
-function App() {
+const vagas: Vaga[] = [
+  {
+    titulo: 'Desenvolvedor Front-end',
+    localizacao: 'São Paulo',
+    nivel: 'Júnior',
+    modalidade: 'Remoto',
+    salarioMin: 5000,
+    salarioMax: 8000,
+    requisitos: ['React', 'JavaScript', 'HTML', 'CSS']
+  }
+  // ... outras vagas
+]
+
+const App = () => {
   return (
-    <>
-      <GlobalStyle />
-      <Cabecalho />
-      <Hero />
-      <div className="container">
-        <ListaVagas />
-      </div>
-    </>
+    <div>
+      <ListaVagas vagas={vagas} />
+    </div>
   )
 }
 
